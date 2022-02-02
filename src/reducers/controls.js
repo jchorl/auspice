@@ -92,7 +92,8 @@ export const getDefaultControlsState = () => {
     measurementsGroupBy: undefined,
     measurementsDisplay: "mean",
     measurementsShowOverallMean: true,
-    measurementsShowThreshold: true
+    measurementsShowThreshold: true,
+    measurementsFilters: {}
   };
 };
 
@@ -305,6 +306,8 @@ const Controls = (state = getDefaultControlsState(), action) => {
       return {...state, measurementsShowOverallMean: action.data};
     case types.CHANGE_MEASUREMENTS_DISPLAY:
       return {...state, measurementsDisplay: action.data};
+    case types.APPLY_MEASUREMENTS_FILTER:
+      return {...state, measurementsFilters: action.data};
     default:
       return state;
   }
