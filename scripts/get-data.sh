@@ -82,3 +82,16 @@ done
 
 
 echo "The local data directory ./data now contains a selection of up-to-date datasets from http://data.nextstrain.org"
+
+# Temporary test files for Measurements Panel PR
+testing_files=(
+  "nextstrain-testing_flu_seasonal_h1n1pdm_ha_09-17.json" \
+  "nextstrain-testing_flu_seasonal_h1n1pdm_ha_09-17_measurements.json" \
+  "nextstrain-testing_flu_seasonal_h1n1pdm_ha_09-17_root-sequence.json" \
+  "nextstrain-testing_flu_seasonal_h1n1pdm_ha_09-17_tip-frequencies.json" \
+)
+
+for i in "${testing_files[@]}"
+do
+  curl https://raw.githubusercontent.com/joverlee521/nextstrain-testing/main/auspice/"${i}" -o data/"${i}"
+done
