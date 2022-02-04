@@ -174,7 +174,7 @@ export const drawMeasurementsSVG = (ref, svgData) => {
     .attr("class", classes.xAxis)
     .attr("transform", `translate(0, ${svgHeight - layout.bottomPadding})`)
     .call(axisBottom(xScale))
-    .call(g => g.attr("font-family", null))
+    .call((g) => g.attr("font-family", null))
     .append("text")
       .attr("x", layout.leftPadding + ((svgWidth - layout.leftPadding - layout.rightPadding)) / 2)
       .attr("y", layout.bottomPadding * 2 / 3)
@@ -214,7 +214,7 @@ export const drawMeasurementsSVG = (ref, svgData) => {
         axisLeft(yScale)
           .ticks(1)
           .tickFormat(() => groupingValue))
-      .call(g => g.attr("font-family", null));
+      .call((g) => g.attr("font-family", null));
 
     // Add circles for each measurement
     subplot.append("g")
