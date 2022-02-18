@@ -5,6 +5,7 @@ const CompressionPlugin = require('compression-webpack-plugin');
 const fs = require('fs');
 const utils = require('./cli/utils');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const InlineChunkHtmlPlugin = require('inline-chunk-html-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
 
@@ -96,8 +97,12 @@ const generateConfig = ({extensionPath, devMode=false, customOutputPath, analyze
   ] : [
     new LodashModuleReplacementPlugin(),
     pluginProcessEnvData,
+    new webpack.optimize.LimitChunkCountPlugin({
+      maxChunks: 1,
+    }),
     pluginCompress,
     pluginHtml,
+    new InlineChunkHtmlPlugin(HtmlWebpackPlugin, [/.*/]),
     cleanWebpackPlugin
   ];
 

@@ -84,6 +84,7 @@
     "html-webpack-plugin": "^4.3.0",
     "i18next": "^19.3.2",
     "i18next-resource-store-loader": "^0.1.2",
+    "inline-chunk-html-plugin": "^1.1.1",
     "json-loader": "^0.5.1",
     "leaflet": "1.7.1",
     "leaflet-gesture-handling": "1.2.1",
